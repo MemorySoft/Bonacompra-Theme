@@ -1,0 +1,26 @@
+﻿@{
+    // Model is Model.Menu from the layout (Layout.Menu)
+    var tag = Tag(Model, "ul");
+
+    var items = (IList<dynamic>)Enumerable.Cast<dynamic>(Model.Items);
+
+    if (items.Any()) {
+        items[0].Classes.Add("first");
+        items[items.Count - 1].Classes.Add("last");
+    } 
+        
+    var homeUrl = Href("~/"); 
+   
+}
+<nav>
+    <div id="movil-branding" class="four columns show-for-small">
+        <a href="@homeUrl"><img src="/Media/Default/logos/logo_verde.png" alt="@WorkContext.CurrentSite.SiteName" /></a>
+    </div>
+    <div class="movil-menu">
+        <span>Menú</span>
+    </div>
+    @tag.StartElement
+        @* see MenuItem shape template *@
+        @DisplayChildren(Model)
+    @tag.EndElement
+</nav>

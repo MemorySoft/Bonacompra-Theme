@@ -1,0 +1,91 @@
+﻿@*
+    @Model.RequestedUrl
+    @Model.ReferrerUrl
+
+<div class="showcase">
+        <h2>@Html.TitleForPage(T("No se encuentra la página").ToString())</h2>
+</div>
+*@
+<br/>
+<br/>
+<div class="row showcase">
+    <div class="three columns">
+        <h1><i class="icon-search icon-4x"></i></h1>
+    </div>
+    <div class="nine columns">
+        <h2>Página no encontrada</h2>
+        <p>Hemos buscado la página que solicitas pero no existe o ha sido movida de sitio.</p>
+        <hr/>
+        <ul>
+            <li>Comprueba que hayas escrito bien la dirección</li>
+            <li>Si has seguido un enlace, notifica que es incorrecto</li>
+            <li>Si no sabes como has llegado hasta aquí, puedes ir a la <a href="~/">página de inicio</a>.</li>
+        </ul>
+    </div>
+</div>
+ 
+<br/><br/><br/><br/>
+
+<div>
+    <div class="row">
+        <hr />
+	    <div class="twelve columns">
+		    <h3>¿Alguna duda o sugerencia? Contacta con nosotros</h3>
+	    </div>
+
+	    <form action="/oforms/Home/SubmitForm" id="contactoBonacompra" method="post">
+		    <input id="oforms_name" name="oforms.name" type="hidden" value="contactoBonacompra" />
+		    <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/contactta-con-bonacompra" />
+		
+		    <div class="six columns">
+			    <div class="row collapse">
+				    <div class="two mobile-one columns" id="id_1">
+					    <span class="prefix"><i class="icon-user">.</i></span>
+				    </div>
+				    <div class="ten mobile-three columns">
+					    <input placeholder="Nombre" id="input_1" name="q1_nombre" required="" type="text" />
+				    </div>
+			    </div>
+			    <div class="row collapse">
+				    <div class="two mobile-one columns" id="id_2">
+					    <span class="prefix"><i class="icon-envelope">.</i></span>
+				    </div>
+				    <div class="ten mobile-three columns">
+					    <input placeholder="Email" id="input_2" name="q2_email" required="" type="email" />
+				    </div>
+			    </div>
+			    <div class="row collapse">
+				    <div class="two mobile-one columns" id="id_3">
+					    <span class="prefix"><i class="icon-phone">.</i></span>
+				    </div>
+				    <div class="ten mobile-three columns">
+					    <input placeholder="Tel&eacute;fono" id="input_3" name="q3_telefono" pattern="[0-9]*" type="tel" />
+				    </div>
+			    </div>
+		    </div>
+		
+		    <div class="six columns">
+			    <div class="row" id="id_4">
+				    <div class="twelve mobile-six columns">
+					
+					    <textarea id="input_4" required="" placeholder="Mensaje" name="q4_mensaje" rows="5"></textarea>
+					
+					    <div class="row" id="id_6">
+						    <div class="twelve mobile-six columns" id="cid_6">
+							    <input value="Borrar" class="boton" type="reset" /> 
+							    <input value="Enviar" class="boton" id="input_6" type="submit" />
+						    </div>
+					    </div>
+
+				    </div>
+			    </div>
+		    </div>
+		
+		    <input 
+			    name="__RequestVerificationToken" 
+			    type="hidden" 
+			    value="1uRMHNy2Aqc1dGsaxJnQ_wWAFAZmEgRMXbCqMC5le4NVmq4lrSWKMrmT-V2xiqqvKyKfvcsJOfwU5chOBsnEr6SIgvyUcVjfWk7e-llUw6r_u6fB43bv_3hJcqMjupeo51iNf72IG9PUaKoauiTkR6-1Pa-Ex9sE3WTvHu-3hGE1" />
+			
+	    </form>
+    </div>
+</div>

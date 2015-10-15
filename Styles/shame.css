@@ -1,0 +1,170 @@
+/* 
+*   De los productores de 
+*   'Renderiza como puedas' 
+*   '7 hacks para 7 bugs' y
+*   'Nunca digas nunca hacks'  
+*   llega:       
+*    
+*   'M DE MIERDETA'
+*   --------------------------------
+*   ¡Próximamente en tu "navegador"!           
+*    
+*/
+
+/*  NAVEGACION 
+*   --------------------------------------------------
+*   Parece que IE8-7 tienen su propia manera
+*   de renderizar las fuentes y añaden una
+*   falsa negrita que hace que las letras consuman
+*   más pixels. También dan problemas con los
+*   paddings y margins de los items de la navegación...
+*    
+*   Falta investigar a fondo el problema, pero
+*   de momento las siguientes reglas lo solucionan.
+*
+*/
+
+.ie8 nav ul li a,
+.ie7 nav ul li a {
+    font-size: 16px;
+    padding: 17px 10px;
+}
+.ie8 nav ul li > ul > li a,
+.ie7 nav ul li > ul > li a {
+    font-size: 14px;
+    padding: 10px;
+}
+
+/*  COLUMNAS PERSONALIZADAS 
+*   -------------------------------------------------- 
+*   IE7-8 añaden un margen o un relleno
+*   a ciertos elementos sumándolo al width
+*   del elemento por lo que se rompe el layout.
+*   
+*   Lo arreglamos reduciendo el porcentaje. 
+*    
+*/
+
+.ie7 .widget .blog-posts li {
+    width: 30%;
+}
+
+/*  TITULARES
+*   -------------------------------------------------- 
+*   El interlineado de los elementos de linea dentro 
+*   de un elemento de bloque tipo <h*> no respetan el 
+*   interlineado.
+*
+*   
+*/
+
+.ie7 h2 small {
+    line-height: 30px;
+}
+
+/*  GRID 
+*   --------------------------------------------------
+*   Aplicamos el parche de Foundation4 para IE8
+*   como base, sustituyendo la clase .lt-ie9 por
+*   .ie7, y las correspondientes a la versión 3 de
+*   Foundation, además hemos hackeado los porcentajes. 
+*
+*   Dejamos comentadas algunas reglas por si fuesen 
+*   necesarias en futuras actualizaciones.
+*
+*/
+
+/* The Grid ---------------------- */
+.ie7 .row { width: 940px; max-width: 100%; min-width: 768px; margin: 0 auto; }
+.ie7 .row .row { width: auto; max-width: none; min-width: 0; margin: 0 -15px; }
+.ie7 .row.large-collapse .column,
+.ie7 .row.large-collapse .columns { padding: 0; }
+.ie7 .row .row { width: auto; max-width: none; min-width: 0; margin: 0 -15px; }
+.ie7 .row .row.large-collapse { margin: 0; }
+ 
+.ie7 .column, .ie7 .columns { float: left; min-height: 1px; padding: 0 15px; position: relative; }
+.ie7 .column.large-centered, .columns.large-centered { float: none; margin: 0 auto; }
+ 
+.ie7 [class*="column"] + [class*="column"]:last-child { float: right; }
+.ie7 [class*="column"] + [class*="column"].end { float: left; }
+
+/* 
+.ie7 .one,
+.ie7 .row .one { width: 8.33333%; }
+*/ 
+ 
+.ie7 .two,
+.ie7 .row .two { width: 13%; }
+
+.ie7 .three,
+.ie7 .row .three { width: 21%; }
+ 
+.ie7 .four,
+.ie7 .row .four { width: 30%; }
+
+.ie7 .five,
+.ie7 .row .five { width: 37%; }
+
+.ie7 .six,
+.ie7 .row .six { width: 45%; }
+
+ /*
+.ie7 .seven,
+.ie7 .row .seven { width: 58.33333%; }
+ 
+.ie7 .eight,
+.ie7 .row .eight { width: 66.66667%; }
+ */
+
+.ie7 .nine,
+.ie7 .row .nine { width: 71%; }
+
+ /*
+.ie7 .ten,
+.ie7 .row .ten { width: 83.33333%; }
+ 
+.ie7 .eleven,
+.ie7 .row .eleven { width: 91.66667%; }
+ */
+
+.ie7 .twelve,
+.ie7 .row .twelve { width: 100%; }
+
+/*
+.ie7 .row .large-offset-1 { margin-left: 8.33333%; }
+.ie7 .row .large-offset-2 { margin-left: 16.66667%; }
+.ie7 .row .large-offset-3 { margin-left: 25%; }
+.ie7 .row .large-offset-4 { margin-left: 33.33333%; }
+.ie7 .row .large-offset-5 { margin-left: 41.66667%; }
+.ie7 .row .large-offset-6 { margin-left: 50%; }
+.ie7 .row .large-offset-7 { margin-left: 58.33333%; }
+.ie7 .row .large-offset-8 { margin-left: 66.66667%; }
+.ie7 .row .large-offset-9 { margin-left: 75%; }
+.ie7 .row .large-offset-10 { margin-left: 83.33333%; }
+ 
+.ie7 .pull-2 { right: 16.66667%; }
+.ie7 .pull-3 { right: 25%; }
+.ie7 .pull-4 { right: 33.33333%; }
+.ie7 .pull-5 { right: 41.66667%; }
+.ie7 .pull-6 { right: 50%; }
+.ie7 .pull-7 { right: 58.33333%; }
+.ie7 .pull-8 { right: 66.66667%; }
+.ie7 .pull-9 { right: 75%; }
+.ie7 .pull-10 { right: 83.33333%; }
+ 
+.ie7 .push-2 { left: 16.66667%; }
+.ie7 .push-3 { left: 25%; }
+.ie7 .push-4 { left: 33.33333%; }
+.ie7 .push-5 { left: 41.66667%; }
+.ie7 .push-6 { left: 50%; }
+.ie7 .push-7 { left: 58.33333%; }
+.ie7 .push-8 { left: 66.66667%; }
+.ie7 .push-9 { left: 75%; }
+.ie7 .push-10 { left: 83.33333%; }
+*/
+ 
+/* Nicolas Gallagher's micro clearfix */
+.ie7 .row { *zoom: 1; }
+.ie7 .row:before, .row:after { content: " "; display: table; }
+.ie7 .row:after { clear: both; }
+

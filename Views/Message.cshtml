@@ -1,0 +1,5 @@
+﻿<div class="row">
+    <div class="twelve columns message message-@Model.Type">
+        <h3>@Html.Raw(Html.Encode(Model.Message).Replace("\n", "<br />"))</h3>
+    </div>
+</div>

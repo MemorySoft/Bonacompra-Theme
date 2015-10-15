@@ -1,0 +1,78 @@
+﻿@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+@{
+    RegisterLink(new LinkEntry {Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/modules/orchard.themes/Content/orchard.ico")});
+    
+    Script.Include("vendor/modernizr-2.6.2-respond-1.1.0.min.js").AtHead();
+    
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+
+    string classForPage = "static " + Html.ClassForPage();
+}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="@classForPage ie6" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if IE 7 ]>    <html class="@classForPage ie7" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if IE 8 ]>    <html class="@classForPage ie8" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if IE 9 ]>    <html class="@classForPage ie9" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="" lang="es"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>@Html.Title(title, siteName)</title> 
+    <meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
+
+    @Display(Model.Head)
+
+    <!--[if lt IE 8]>
+      <link href="/Themes/Bonacompra2/Styles/shame.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <script>(function(d){d.className="dyn"+d.className.substring(6,d.className.length);})(document.documentElement);</script>
+    
+    <!-- Google Analytics Asíncrono -->
+    <script type="text/javascript" defer="defer">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25713446-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <!-- Prefetching -->
+    <link rel="prefetch" href="~/tarjeta-club-bonacompra"> 
+    <link rel="prefetch" href="~/compra-solidaria"> 
+    <link rel="prefetch" href="~/proyectos-solidarios"> 
+    <link rel="prefetch" href="~/noticias"> 
+
+</head> 
+<body>
+<!--[if lt IE 7]>
+    <div style="width:100%;height:9999px;background:#fff;position:fixed;z-index:1000;padding:100px 0 0 0;margin:0;">
+        <div class="row">
+            <div class="twelve columns">
+                <div class="alert-box warning">
+                    <h1>Lo sentimos pero tu navegador<br/>és demasiado antiguo</h1>
+                    <p>Microsoft ya no dá soporte a tu versión de Internet Explorer<br/>y no podemos garantizar que esta web se visualice correctamente.<br/><a href="http://www.ie6countdown.com/">Más información</a></p>
+                    <p>Para navegar por esta web puedes intentar una de las siguientes opciones:</p>
+                    <ul>
+                        <li>Instalar <a href="https://www.google.es/webhp?hl=es&tab=ww#hl=es&tbo=d&sclient=psy-ab&q=alternativas+a+internet+explorer&oq=alternativas+a+internet+explorer&gs_l=hp.3..0j0i8i30.15362.20052.1.20822.17.17.0.0.0.0.286.3235.0j14j3.17.0...0.0...1c.1.3.psy-ab.bG4L7HNq2F0&pbx=1&bav=on.2,or.r_gc.r_pw.r_qf.&bvm=bv.42452523,d.d2k&fp=3e10f96642887b04&biw=1920&bih=989">otro navegador</a> en tu ordenador.</li>
+                        <li><a href="http://www.google.com/chromeframe/?hl=es&quickenable=true">Instalar Chrome Frame</a> para Internet Explorer.</li>
+                        <li><a href="http://windows.microsoft.com/es-ES/internet-explorer/downloads/ie-8">Actualizar</a> a una versión superior de Internet Explorer.</li>
+                    </ul>
+                    <h4>Disculpa las molestias</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+<![endif]-->
+    @* Layout (template) is in the Body zone @ the default position (nothing, zero, zilch) *@
+    @Display(Model.Body)
+    @Display(Model.Tail)
+</body>
+</html>
